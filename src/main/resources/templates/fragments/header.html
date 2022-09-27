@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<div class="header" th:fragment="menu">
+      		<div class="header_content">
+      			<div class="contents">
+	      			<h1><a href="/">ㅇㅎㅇㄱ</a><p>우리의 여행일기</p></h1>
+	      			<ul class="userInfo">
+	      				<li sec:authorize="isAnonymous()">
+		      				<a th:href="@{/user/login}">
+			      				<span>로그인</span>
+		      				</a>
+	      				</li>
+	      				<li sec:authorize="isAuthenticated()">
+	      					<a th:href="@{/user/logout}">
+	      						<span>로그아웃</span>
+	      					</a>
+	      				</li>
+	      				<li sec:authorize="isAnonymous()">
+		      				<a th:href="@{/user/join}">
+			      				<span>회원가입</span>
+		      				</a>
+	      				</li>
+	      				<li sec:authorize="isAuthenticated()">
+	      					<a th:href="@{/user/mypage}">
+	      						<span>내정보</span>
+	      					</a>
+	      				</li>
+	      				<li>
+		      				<a th:href="@{/user/login}">
+			      				<span>고객센터</span>
+		      				</a>
+	      				</li>
+	      			</ul>
+      			</div>
+      		</div>
+      		<div class="nav">
+      			<div class="contents">
+	      			<ul class="nav_menu">
+	      				<li>
+	      					<h2>
+			      				<a th:href="@{/user/login}">여행장소</a>
+	      					</h2>
+	      				</li>
+	      				<li>
+	      					<h2>
+			      				<a th:href="@{/user/login}">여행일기</a>
+	      					</h2>
+	      				</li>
+	      				<li>
+	      					<h2>
+			      				<a th:href="@{/user/login}">여행일정</a>
+	      					</h2>
+	      				</li>
+	      				<li>
+	      					<h2>
+			      				<a th:href="@{/user/login}">예약하기</a>
+	      					</h2>
+	      				</li>
+	      				<li>
+	      					<h2>
+			      				<a th:href="@{/user/login}">이벤트</a>
+	      					</h2>
+	      				</li>
+	      			</ul>
+	      			<div class="totalSearch">
+	      				<label for="totalSearch">
+	      					<input type="text" id="header_keyword">
+	      				</label>
+	      				<button type="button" class="btn_totalSearch" id="btn_header_search">검색</button>
+	      			</div>
+      			</div>
+      		</div>     		
+		</div>
+	</body> 
+</html>
