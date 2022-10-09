@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>우리의 여행일기</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<th:block th:replace="fragments/config :: configFragment"></th:block>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+	<link rel="stylesheet" th:href="@{/css/user.css}">	
+</head>
+<body>
+	<div id="trip_wrap">
+		<section class="sect_join">
+			<h1>
+				<a href="/" class="logo">
+					ㅇㅎㅇㄱ				
+				</a>
+			</h1>
+			<div class="join_contents">
+				<h1>회원가입</h1>
+				<div class="join_sns">
+					<div class="sns_txt">SNS계정으로 간편하게 회원가입</div>
+					<ul>
+						<li>
+							<a href="#" title="네이버로 로그인 선택">
+								<img alt=""  src="/icons/naver_login.png">
+							</a>
+						</li>
+						<li>
+							<a href="#" title="카카오로 로그인 선택">
+								<img alt=""  src="/icons/kakao_login.png">
+							</a>
+						</li>
+						<li>
+							<a href="#" title="트위터로 로그인 선택">
+								<img alt=""  src="/icons/twitter_login.png">
+							</a>
+						</li>
+						<li>
+							<a href="#" title="구글로 로그인 선택">
+								<img alt=""  src="/icons/google_login.png">
+							</a>
+						</li>
+					</ul>
+				</div>
+				<form th:action="@{/user/join}" method="post">
+					<div class="join">
+						<label class="join_title warn">이메일</label>
+						<label>
+							<input class="join_data" name="email" type="email" placeholder="이메일">
+						</label>
+						<div class="join_warn email_warn"></div>
+					</div>
+					<div class="join">
+						<label class="join_title">비밀번호</label>
+						<div class="join_rule">영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.</div>
+						<label>
+							<input class="join_data" name="password" type="password" placeholder="비밀번호">
+						</label>
+						<div class="join_warn password_warn">d</div>
+					</div>
+					<div class="join">
+						<label class="join_title">비밀번호 확인</label>
+						<label>
+							<input class="join_data" name="confirmPassword" type="password" placeholder="비밀번호 확인">
+						</label>
+						<div class="join_warn password_warn">d</div>
+					</div>
+					<div class="join">
+						<label class="join_title">이름</label>
+						<label>
+							<input class="join_data" name="name" type="text" placeholder="이름">
+						</label>
+						<div class="join_warn password_warn">d</div>
+					</div>
+					<div class="join">
+						<label class="join_title">닉네임</label>
+						<div class="join_rule">다른 사용자와 겹치지 않는 별명을 입력해주세요(2~15자)</div>
+						<label>
+							<input class="join_data" name="nickname" type="text" placeholder="닉네임">
+						</label>
+						<div class="join_warn password_warn">d</div>
+					</div>
+					<div class="join">
+						<label class="join_title">약관동의</label>
+						<div class="join_clause">
+							<div class="join_agreeAll">
+								<label class="sect_agree">
+									<div class="agree_checkbox">
+										<input type="checkbox" class="agree" name="agreeAll">
+									</div>
+									<span class="clause_txt">
+										<div class="agreeAll_txt">
+											전체동의
+										</div>
+									</span>
+								</label>
+							</div>
+							<label class="sect_agree">
+								<div class="agree_checkbox">
+									<input type="checkbox" class="agree" name="agree1">
+								</div>
+								<span class="clause_txt">
+									<div class="agree_txt">
+										만 14세 이상입니다.
+										<span class="essential">(필수)</span>
+									</div>
+								</span>
+							</label>
+							<label class="sect_agree">
+								<div class="agree_checkbox">
+									<input type="checkbox" class="agree" name="agree2">
+								</div>
+								<span class="clause_txt">
+									<div class="agree_txt">
+										<a>이용약관</a>
+										<span class="essential">(필수)</span>
+									</div>
+								</span>
+							</label>
+							<label class="sect_agree">
+								<div class="agree_checkbox">
+									<input type="checkbox" class="agree" name="agree3">
+								</div>
+								<span class="clause_txt">
+									<div class="agree_txt">
+										<a>개인정보수집 및 이용동의</a>
+										<span class="essential">(필수)</span>
+									</div>
+								</span>
+							</label>
+						</div>				
+					</div>
+					<button class="btn_join" type="submit">회원가입</button>
+				</form>
+				<p class="go_signin">
+					이미 아이디가 있으신가요?
+					<a href="/user/signin">로그인</a>
+				</p>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

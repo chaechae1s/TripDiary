@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>우리의 여행일기</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<th:block th:replace="fragments/config :: configFragment"></th:block>
+	<link rel="stylesheet" th:href="@{/css/user.css}">	
+</head>
+<body>
+	<div id="trip_wrap">
+		<div th:replace="fragments/header :: menu"></div>
+		<div id="container">
+			<div id="contents">
+				<div class="myPage_main">
+					<div class="myPage_info">
+						<form th:action="@{/user/{id}/edit(id=${#authentication.getPrincipal().id})}" method="post">
+							<input th:value="${user.email}" type="email" readonly="readonly">
+							<input th:value="${user.name}" type="text">
+							<input th:value="${user.name}" type="text" readonly="readonly">
+						</form>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

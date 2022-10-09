@@ -1,0 +1,164 @@
+@charset "UTF-8";
+
+#trip_wrap {
+	position: relative;
+	width: 100%;
+	min-width: 1040px;
+}
+
+#container {
+	position: relative;
+	width: 100%;
+	z-index: 7;
+}
+
+#contents {
+	clear: both;
+	padding-bottom: 50px;
+	position: relative;
+	width: 980px;
+	margin: 0 auto;
+}
+
+.header {
+	margin-bottom: 50px;
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+}
+
+.header .contents {
+	width: 980px;
+	margin: 0 auto;
+}
+
+.header_content .contents {
+	display: flex;
+	justify-content: space-between;
+	padding: 30px 6px 25px 5px;
+	background-color: #fff;
+}
+
+.header_content .contents a {
+	font-size: 40px;
+	font-weight: 700;
+	padding-top: 14px;
+	letter-spacing: 2px;
+}
+
+.header_content .contents h1 p {
+	font-weight: 300;
+	font-size: 16px;
+	color: #222;
+	letter-spacing: 0.313em;
+	line-height: 1.500em;
+	text-align: center;
+}
+
+.header_content .contents .userInfo {
+	display: flex;
+	align-items: center;
+}
+
+.header_content .contents .userInfo li {
+	margin-left: 44px;
+	margin-top: 2px;
+}
+
+.header_content .contents .userInfo li a span {
+	font-weight: 400;
+	font-size: 16px;
+	color: #666;
+}
+
+.nav {
+	position: absolute;
+	left: 0;
+	top: 113px;
+	width: 100%;
+	padding: 5px 0;
+	background-color: #fff;
+}
+
+.nav .contents {
+	position: relative;
+}
+
+.nav_menu {
+	display: inline-flex;
+}
+
+.nav_menu li {
+	width: 162px;
+	padding: 20px 0;
+}
+
+.nav_menu li:first-child {
+	width: 137px;
+}
+
+.nav_menu li h2 {
+	position: absolute;
+	top: 7px;
+}
+
+.nav_menu li:nth-child(2) h2 {
+	left: 120px;
+}
+
+.nav_menu li:nth-child(3) h2 {
+	left: 240px;
+}
+
+.nav_menu li:nth-child(4) h2 {
+	left: 360px;
+}
+
+.nav_menu li:last-child h2 {
+	left: 480px;
+}
+
+.totalSearch:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 2px;
+	width: 1px;
+	height: 20px;
+	background-color: #cacaca;
+}
+
+.totalSearch {
+	display: inline-flex;
+	position: absolute;
+	right: 0;
+	top: 7px;
+	padding: 0 36px 0 10px;
+}
+
+.totalSearch label {
+	display: block;
+}
+
+.totalSearch label input[type="text"] {
+	width: 180px;
+	height: auto;
+	padding: 0 0 0 7px;
+	font-size: 16px;
+	color: #222;
+	line-height: 1.500em;
+	border: none;
+	font-weight: 400;
+}
+
+.totalSearch .btn_totalSearch {
+	display: block;
+	position: absolute;
+	right: 10px;
+	top: -1px;
+	width: 26px;
+	height: 26px;
+	font-size: 0;
+	line-height: 0;
+	background: transparent url("../../icons/search.png") center 
+	center/26px scroll no-repeat;
+}

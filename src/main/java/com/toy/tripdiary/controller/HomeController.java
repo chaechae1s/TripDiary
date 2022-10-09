@@ -10,5 +10,10 @@ public class HomeController {
 	public String home() throws Exception {
 		return "home";
 	}
+	
+	@GetMapping("/access_denied")
+	public String access_denied() throws Exception {
+		return "denied";
+	}
 
 }
