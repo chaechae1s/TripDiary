@@ -10,6 +10,8 @@ import lombok.Setter;
 @Getter @Setter
 public class SecurityUser extends org.springframework.security.core.userdetails.User {
 	
+	private static final long serialVersionUID = 1L;
+	
 	private Long id;
 	private String nickname;
 	

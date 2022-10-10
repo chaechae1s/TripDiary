@@ -14,7 +14,7 @@
 				<div class="myPage_main">
 					<div class="myPage_info">
 						<div th:text="${#authentication.getPrincipal().nickname}"></div>
-						<a th:href="@{/user/{id}/edit(id=${#authentication.getPrincipal().id})}">회원 정보 수정</a>
+						<a th:href="@{/user/edit/{id}(id=${#authentication.getPrincipal().id})}">회원 정보 수정</a>
 					</div>
 				</div>
 			</div>

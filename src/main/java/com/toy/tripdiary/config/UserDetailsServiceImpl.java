@@ -11,9 +11,7 @@ import org.springframework.stereotype.Component;
 import com.toy.tripdiary.domain.User;
 import com.toy.tripdiary.repository.UserRepository;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Component
 public class UserDetailsServiceImpl implements UserDetailsService{
 	

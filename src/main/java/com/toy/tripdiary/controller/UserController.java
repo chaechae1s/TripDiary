@@ -1,16 +1,17 @@
 package com.toy.tripdiary.controller;
 
-import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.toy.tripdiary.domain.User;
+import com.toy.tripdiary.dto.UserDTO;
 import com.toy.tripdiary.service.UserService;
 
 @Controller
@@ -26,8 +27,8 @@ public class UserController {
 	}
 	
 	@PostMapping("/join")
-	public String join(User user) {
-		userService.join(user);
+	public String join(UserDTO userDTO) {
+		userService.join(userDTO);
 		
 		return "redirect:/";
 		
@@ -45,7 +46,7 @@ public class UserController {
 		return "user/mypage";
 	}
 	
-	@GetMapping("{id}/edit")
+	@GetMapping("/edit/{id}")
 	public ModelAndView edit(@PathVariable Long id) throws Exception {
 		User user = userService.findById(id);
 		ModelAndView mv = new ModelAndView();
@@ -53,5 +54,10 @@ public class UserController {
 		mv.setViewName("user/edit");
 		
 		return mv;
+	}
+	
+	@PostMapping("/edit/{id}")
+	public String edit(@PathVariable Long id, User user) throws Exception {
+		return null;
 	}
 }

@@ -13,10 +13,10 @@
 			<div id="contents">
 				<div class="myPage_main">
 					<div class="myPage_info">
-						<form th:action="@{/user/{id}/edit(id=${#authentication.getPrincipal().id})}" method="post">
+						<form th:action="@{/user/edit/{id}(id=${#authentication.getPrincipal().id})}" method="post">
 							<input th:value="${user.email}" type="email" readonly="readonly">
-							<input th:value="${user.name}" type="text">
 							<input th:value="${user.name}" type="text" readonly="readonly">
+							<input th:value="${user.nickname}" type="text">
 						</form>	
 					</div>
 				</div>

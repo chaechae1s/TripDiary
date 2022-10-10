@@ -1,13 +1,14 @@
 package com.toy.tripdiary.service;
 
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.toy.tripdiary.domain.Role;
 import com.toy.tripdiary.domain.User;
+import com.toy.tripdiary.dto.UserDTO;
 import com.toy.tripdiary.repository.UserRepository;
 
 @Service
@@ -19,13 +20,13 @@ public class UserService {
 	@Autowired
 	private PasswordEncoder encoder;
 	
-	public Long join(User user) {
-		user.setPassword(encoder.encode(user.getPassword()));
-		user.setRole(Role.ROLE_USER);
-		user.setEnabled(true);
-		userRepository.save(user);
+	@Transactional
+	public Long join(UserDTO userDTO) {
+		userDTO.setPassword(encoder.encode(userDTO.getPassword()));
+		userDTO.setRole(Role.ROLE_USER);
+		userDTO.setEnabled(true);
 		
-		return user.getId();
+		return userRepository.save(userDTO.toEntity()).getId();
 		
 	}
 	
@@ -34,6 +35,11 @@ public class UserService {
 		User user = userRepository.findById(id).orElseThrow(IllegalArgumentException::new);
 		
 		return user;
+	}
+	
+	public Long edit(User user) {
+		
+		return user.getId();
 	}
 
 }
