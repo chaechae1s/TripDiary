@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -29,7 +31,7 @@ public class UserControllerTest {
 	@Autowired
 	private TestRestTemplate restTemplate;
 
-	@After
+//	@After
 	public void end() throws Exception {
 		userRepository.deleteAll();
 	}
@@ -42,8 +44,8 @@ public class UserControllerTest {
 		UserDTO userDTO = UserDTO.builder()
 				.email(email)
 				.password("test1230")
-				.name("테스트")
-				.nickname("테스트")
+				.name("김테스트")
+				.nickname("조미김테스트")
 				.build();
 		
 		String url = "http://localhost/user/join";
@@ -61,5 +63,6 @@ public class UserControllerTest {
 		
 		
 	}
+	
 
 }

@@ -3,6 +3,8 @@ package com.toy.tripdiary.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
@@ -28,21 +30,21 @@ public class SecurityConfig {
 			.csrf().disable()
 			.authorizeHttpRequests()
 									.antMatchers("/").permitAll()
-									.antMatchers("/user/login").permitAll()
-									.antMatchers("/user/join").permitAll()
-									.antMatchers("/user/**").authenticated()
+									.antMatchers("/users/login").permitAll()
+									.antMatchers("/users/join").permitAll()
+									.antMatchers("/users/**").authenticated()
 									.anyRequest().authenticated()
 									.and()
 			.formLogin()
-						.loginPage("/user/login")
+						.loginPage("/users/login")
 						.defaultSuccessUrl("/")
-						.failureUrl("/user/login")
+						.failureUrl("/users/login")
 						.usernameParameter("email")
-						.loginProcessingUrl("/user/login_proc")
+						.loginProcessingUrl("/users/login_proc")
 						.permitAll()
 						.and()
 			.logout()
-						.logoutUrl("/user/logout")
+						.logoutUrl("/users/logout")
 						.logoutSuccessUrl("/")
 						.invalidateHttpSession(true)
 						.deleteCookies("JSESSIONID")
@@ -63,10 +65,13 @@ public class SecurityConfig {
 	}
 	
 	@Bean
-	public PasswordEncoder passwordEncoder() {
+	public PasswordEncoder encoder() {
 		return new BCryptPasswordEncoder();
 	}
 	
-	
+	@Bean
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
+		return authConfig.getAuthenticationManager();
+	}
 
 }

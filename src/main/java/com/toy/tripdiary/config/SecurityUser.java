@@ -12,13 +12,13 @@ public class SecurityUser extends org.springframework.security.core.userdetails.
 	
 	private static final long serialVersionUID = 1L;
 	
-	private Long id;
-	private String nickname;
+	private User user;
+	
 	
 	public SecurityUser(User user) {
 		super(user.getEmail(), user.getPassword(), AuthorityUtils.createAuthorityList(user.getRole().toString()));		
-		this.id = user.getId();
-		this.nickname = user.getNickname();
+		
+		this.user = user;
 	}
 
 }

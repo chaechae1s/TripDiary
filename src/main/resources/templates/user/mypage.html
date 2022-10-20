@@ -13,8 +13,12 @@
 			<div id="contents">
 				<div class="myPage_main">
 					<div class="myPage_info">
-						<div th:text="${#authentication.getPrincipal().nickname}"></div>
-						<a th:href="@{/user/edit/{id}(id=${#authentication.getPrincipal().id})}">회원 정보 수정</a>
+						<div th:text="${#authentication.principal.user.nickname}"></div>
+						<a th:href="@{/users/edit/{id}(id=${#authentication.principal.user.id})}">회원 정보 수정</a>
+						<form th:action="@{/users/delete/{id}(id=${#authentication.principal.user.id})}" method="post">
+							<input type="hidden" name="_method" value="DELETE"/>
+							<button type="submit">회원 탈퇴</button>
+						</form>
 					</div>
 				</div>
 			</div>

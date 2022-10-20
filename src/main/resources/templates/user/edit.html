@@ -13,10 +13,12 @@
 			<div id="contents">
 				<div class="myPage_main">
 					<div class="myPage_info">
-						<form th:action="@{/user/edit/{id}(id=${#authentication.getPrincipal().id})}" method="post">
+						<form th:action="@{/users/edit/{id}(id=${#authentication.principal.user.id})}" method="post">
+							<input type="hidden" name="_method" value="PUT"/>
 							<input th:value="${user.email}" type="email" readonly="readonly">
 							<input th:value="${user.name}" type="text" readonly="readonly">
-							<input th:value="${user.nickname}" type="text">
+							<input th:value="${user.nickname}" type="text" name="nickname">
+							<button class="btn_join" type="submit">정보 수정</button>
 						</form>	
 					</div>
 				</div>

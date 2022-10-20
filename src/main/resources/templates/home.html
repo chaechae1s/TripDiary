@@ -10,7 +10,8 @@
 	<body>
 		<div id="trip_wrap">
 			<div th:replace="fragments/header :: menu"></div>
-			<div th:text="${#authentication.name}"></div>
+			<div th:text="${#authentication.principal.user.id}" sec:authorize="isAuthenticated()"></div>
+			<div th:text="${#authentication.principal.user.role}" sec:authorize="isAuthenticated()"></div>
 			<p>안녕하세요.</p>
 			<a>회원가입</a>
 		</div>

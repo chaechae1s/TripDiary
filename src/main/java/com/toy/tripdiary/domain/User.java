@@ -8,6 +8,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,6 +33,7 @@ public class User {
 	private String fileName;
 	private boolean enabled;
 	@Enumerated(EnumType.STRING)
+	@ColumnDefault("ROLE_USER")
 	private Role role;
 	
 	
@@ -45,6 +48,5 @@ public class User {
 		this.enabled = enabled;
 		this.role = role;
 	}
-	
 	
 }

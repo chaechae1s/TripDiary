@@ -9,27 +9,27 @@
 	      			<h1><a href="/">ㅇㅎㅇㄱ</a><p>우리의 여행일기</p></h1>
 	      			<ul class="userInfo">
 	      				<li sec:authorize="isAnonymous()">
-		      				<a th:href="@{/user/login}">
+		      				<a th:href="@{/users/login}">
 			      				<span>로그인</span>
 		      				</a>
 	      				</li>
 	      				<li sec:authorize="isAuthenticated()">
-	      					<a th:href="@{/user/logout}">
+	      					<a th:href="@{/users/logout}">
 	      						<span>로그아웃</span>
 	      					</a>
 	      				</li>
 	      				<li sec:authorize="isAnonymous()">
-		      				<a th:href="@{/user/join}">
+		      				<a th:href="@{/users/join}">
 			      				<span>회원가입</span>
 		      				</a>
 	      				</li>
 	      				<li sec:authorize="isAuthenticated()">
-	      					<a th:href="@{/user/{id}(id=${#authentication.getPrincipal().id})}">
+	      					<a th:href="@{/users/{id}(id=${#authentication.principal.user.id})}">
 	      						<span>내정보</span>
 	      					</a>
 	      				</li>
 	      				<li>
-		      				<a th:href="@{/user/login}">
+		      				<a th:href="@{/users/login}">
 			      				<span>고객센터</span>
 		      				</a>
 	      				</li>
@@ -41,27 +41,27 @@
 	      			<ul class="nav_menu">
 	      				<li>
 	      					<h2>
-			      				<a th:href="@{/user/login}">여행장소</a>
+			      				<a th:href="@{/users/login}">여행장소</a>
 	      					</h2>
 	      				</li>
 	      				<li>
 	      					<h2>
-			      				<a th:href="@{/user/login}">여행일기</a>
+			      				<a th:href="@{/users/login}">여행일기</a>
 	      					</h2>
 	      				</li>
 	      				<li>
 	      					<h2>
-			      				<a th:href="@{/user/login}">여행일정</a>
+			      				<a th:href="@{/users/login}">여행일정</a>
 	      					</h2>
 	      				</li>
 	      				<li>
 	      					<h2>
-			      				<a th:href="@{/user/login}">예약하기</a>
+			      				<a th:href="@{/users/login}">예약하기</a>
 	      					</h2>
 	      				</li>
 	      				<li>
 	      					<h2>
-			      				<a th:href="@{/user/login}">이벤트</a>
+			      				<a th:href="@{/users/login}">이벤트</a>
 	      					</h2>
 	      				</li>
 	      			</ul>

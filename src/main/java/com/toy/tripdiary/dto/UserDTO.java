@@ -46,5 +46,14 @@ public class UserDTO {
 				.build();
 	}
 	
+	/* Entity -> dto */
+	public UserDTO(User user) {
+		this.id = user.getId();
+		this.email = user.getEmail();
+		this.password = user.getPassword();
+		this.name = user.getName();
+		this.nickname = user.getNickname();
+		this.fileName = user.getFileName();
+	}
 
 }
