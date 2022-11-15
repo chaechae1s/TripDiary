@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>우리의 여행일기</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+	    function daumpost(){
+	    	new daum.Postcode({
+	    		oncomplete: function(data) {
+	    			document.querySelector("#zipcode").value = data.zonecode;
+	    			document.querySelector("#address").value = data.address;
+	    			document.querySelector("#sigunguCode").value = data.sigunguCode;
+	    			document.querySelector("#sido").value = data.sido;
+	    		}
+	    	}).open();
+	    }
+	</script>
+	<th:block th:replace="fragments/config :: configFragment"></th:block>
+	<link rel="stylesheet" th:href="@{/css/user.css}">	
+</head>
+<body>
+	<div id="trip_wrap">
+		<div th:replace="fragments/header :: menu"></div>
+		<div id="container">
+			<div id="contents">
+				<form th:action="@{/sites/post}" method="post">
+					<input type="text" id="title" name="title">
+					<input type="text" name="category">
+					<input type="text" id="zipcode" name="zipcode" placeholder="우편번호">
+					<input type="button" onclick="daumpost()" value="우편번호 찾기"><br>
+					<input type="text" id="address" name="address" placeholder="주소"><br>
+					<input type="text" id="sample6_detailAddress" placeholder="상세주소">
+					<input type="text" id="sample6_extraAddress" placeholder="참고항목">
+					<input type="text" id="sido" name="sido" placeholder="상세주소">
+					<input type="text" id="sigunguCode" name="sigunguCode">
+					<input type="text" name="phoneNumber">
+					<input type="text" name="etc">
+					<button type="submit">등록하기</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

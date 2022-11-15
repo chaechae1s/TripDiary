@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>우리의 여행일기</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<th:block th:replace="fragments/config :: configFragment"></th:block>
+	<link rel="stylesheet" th:href="@{/css/user.css}">	
+</head>
+<body>
+	<div id="trip_wrap">
+		<div th:replace="fragments/header :: menu"></div>
+		<div id="container">
+			<div id="contents">
+				list
+			</div>
+		</div>
+	</div>
+</body>
+</html>
